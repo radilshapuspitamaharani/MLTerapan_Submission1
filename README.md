@@ -3,7 +3,7 @@
 
 ## Domain Proyek
 
-# Latar Belakang
+## Latar Belakang
 Diamonds atau berlian adalah salah satu mineral karbon alami yang paling langka dan paling keras. intan telah digunakan sebagai batu permata selama berabad-abad karena jika disesuaikan dengan aspeknya, intan memiliki karakteristik 'api' karena indeks biasnya yang tinggi. Di masyarakat, berlian menjadi trend sebagai perhiasan sebagai hadiah pada momen-momen tertentu. Tidak hanya sebagai hadiah, berlian juga dipandang sebagai investasi alternatif selain emas karena nilainya dapat memberikan keuntungan dan peningkatan yang signifikan.
 Dalam bidang perdagangan intan, pembeli atau investor mengalami kesulitan dalam memprediksi harga berlian karena adanya perbedaan bentuk, ukuran, dan kemurnian berlian. Banyak model dan aplikasi telah diimplementasikan untuk
 memprediksi harga berlian ini di masa depan menggunakan pembelajaran mesin. Pembelajaran mesin dibagi menjadi dua kategori, yaitu diawasi dan tidak diawasi. Algoritma pembelajaran terbimbing menggunakan prinsip umum contoh
