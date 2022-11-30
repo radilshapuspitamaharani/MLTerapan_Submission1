@@ -51,6 +51,7 @@ Sebelum masuk ke tahap pembagian dataset, terlebih dahulu dilakukan perubahan un
 * Multivariate Analysis
     + Categorical Features
     <img width="321" alt="image" src="https://user-images.githubusercontent.com/97927496/204704497-089e759f-9998-4052-8006-296fa73767f6.png">
+    
     + Numerical Features
     <img width="464" alt="image" src="https://user-images.githubusercontent.com/97927496/204704548-6fb8487c-82c9-4424-a96d-8ddea9069263.png">    
 
