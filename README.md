@@ -48,11 +48,29 @@ Hal yang akan dilakukan dalam fase ini adalah menggabungkan data, menyeleksi dat
 
 ### Encoding Fitur Kategori
 Sebelum masuk ke tahap pembagian dataset, terlebih dahulu dilakukan perubahan untuk merubah setiap nilai di dalam kolom menjadi kolom baru dan mengisinya dengan nilai biner yaitu 0 dan 1. Pada proyek ini, dilakukan perubahan pada variabel dependen(cut, color, clarity) karena fitur pada variabel tersebut merupakan fitur non-numerik yang berarti nilai pada fitur tersebut adalah kategorikal, maka akan dilakukan proses label encoding untuk mengubah fitur tersebut. Label <i>encoding</i> merupakan teknik untuk mengubah jenis data kategorikal menjadi data numerik yang dapat dipahami model. Pada proyek ini, encoding dilakukan dengan menggunakan metode <i>one-hot-encoding</i>.
+<ul>Multivariate Analysis
+    <li>Categorical Features</li>
+    <img width="321" alt="image" src="https://user-images.githubusercontent.com/97927496/204704497-089e759f-9998-4052-8006-296fa73767f6.png">
+    <li>Numerical Features</li>
+    <img width="464" alt="image" src="https://user-images.githubusercontent.com/97927496/204704548-6fb8487c-82c9-4424-a96d-8ddea9069263.png">    
+</ul>
+<ul>Outliers dan Down Sampling
+| carat | cut       | color | clarity | table | price | x    | y    | z    |
+|-------|-----------|-------|---------|-------|-------|------|------|------|
+| 0.23  | ideal     | E     | SI2     | 55.0  | 326   | 3.95 | 3.98 | 2.43 |
+| 0.21  | Premium   | E     | SI1     | 61.0  | 326   | 3.89 | 3.84 | 2.31 |
+| 0.29  | Premium   | I     | VS2     | 58.0  | 334   | 4.20 | 4.23 | 2.63 |
+| 0.31  | Good      | J     | SI2     | 58.0  | 335   | 4.34 | 4.35 | 2.75 |
+| 0.24  | Very Good | J     | VVS2    | 57.0  | 336   | 3.94 | 3.96 | 2.48 |
+</ul>
+<ul>Corelation Matrix
+<img width="315" alt="image" src="https://user-images.githubusercontent.com/97927496/204705362-262e8030-82f2-422b-a64a-1cd3ed815352.png">
+
 
 ### Reduksi Dimensi Dengan PCA
 PCA adalah teknik tanpa pengawasan karena hanya melihat fitur masukan dan tidak memperhitungkan keluaran atau variabel target
 PCA dilakukan untuk mengurangi dimensi fitur masukan dari dataset dengan tetap mempertahankan semua informasi penting yang ada dalam data dengan dimensi yang dikurangi
-<img width="180" alt="image" src="https://user-images.githubusercontent.com/97927496/204695560-dcfeb199-c5d3-407d-bce4-8e448a5a5218.png">
+   array([0.998, 0.002, 0.001])
 Output diatas adalah 99.8% informasi pada ketiga fitur x, y, z terdapat pada PC pertama. Sedangkan sisanya, sebesar 0.2% dan 0.1% terdapat pada PC kedua dan ketiga. Pada gambar, jumlahnya menjadi >100% dikarenakan proses pembulatan (round) dalam 3 <i>decimal</i>.
 
 ### Split Dataset atau Pembagian Dataset
@@ -69,10 +87,17 @@ pada tahap ini, kita membuat model summary yang nantinya akan digunakan untuk me
 ## Evaluation
 Setelah membuat model <i>machine learning</i>, model perlu dievaluasi agar terbukti cocok untuk tujuan yang telah ditentukan. Fase ini bertujuan untuk memastikan bahwa model akan mampu membuat prediksi yang akurat dan tidak mengalami <i>overfitting</i> atau <i>underfitting</i>
 Setelah mendapat seluruh performa dari 3 metode yang diterapkan maka hasil yang di dapatkan adalah
-<img width="210" alt="image" src="https://user-images.githubusercontent.com/97927496/204700457-2f8b256c-8855-4a79-bc9f-bae6c05b2640.png">
+|          | train      | test        |
+|----------|------------|-------------|
+|    KNN   | 226.035885 | 2220.770793 |
+|    RF    |  59.264645 | 1341.837668 |
+| Boosting | 928.043394 | 2200.663138 |
 
 
 ## Deployment
-<img width="483" alt="image" src="https://user-images.githubusercontent.com/97927496/204618366-f81cfce1-a57b-4694-b0d1-c12beaa8522f.png">
+Setelah melakukan evaluasi pada 3 metode pada train data dan test data maka di dapatkan 
+|       | y_true | prediksi_KNN | prediksi_RF | prediksi_Boosting |
+|-------|-------:|-------------:|------------:|------------------:|
+| 35096 |    886 |       1692.7 |      2154.5 |             798.0 |
 
 Pada proyek ini, terlihat pada program yang dijalankan bahwa prediksi dengan RF memberikan hasil yang paling mendekati. Dengan nilai prediksi KNN 1692.7 dan prediksi RF 2154.5. Perbandingannya dapat dilihat dari gambar diatas.
