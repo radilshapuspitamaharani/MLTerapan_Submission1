@@ -69,7 +69,10 @@ Hal yang akan dilakukan dalam fase ini adalah menggabungkan data, menyeleksi dat
 |  75%  |     1.040000 |    62.500000 |    59.000000 |  5324.250000 |     6.540000 |     6.540000 |     4.040000 |
 |  max  |     5.010000 |    79.000000 |    95.000000 | 18823.000000 |    10.740000 |    58.900000 |    31.800000 |
 
-<img width="223" alt="image" src="https://user-images.githubusercontent.com/97927496/204715410-deed495b-2ed3-4c24-9dfa-c5f8fcfe7dab.png">
+Mengecek Missing Value
+ * Terdapat missing value pada x sebanyak 8
+ * Terdapat missing value pada y sebanyak 7
+ * Terdapat missing value pada z sebanyak 20
 
 
 ### Encoding Fitur Kategori
