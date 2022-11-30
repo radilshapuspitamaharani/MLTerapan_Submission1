@@ -45,8 +45,30 @@ Proses exploratory data analysis (EDA) merupakan proses investigasi awal pada da
 
 ## Data Preparation
 Hal yang akan dilakukan dalam fase ini adalah menggabungkan data, menyeleksi data yang akan digunakan, melakukan proses transformasi data, dan membagi data menjadi data training dan test.
-<img width="224" alt="image" src="https://user-images.githubusercontent.com/97927496/204715242-37dcb513-fb44-4416-94c9-f057fbec26bc.png">
-<img width="480" alt="image" src="https://user-images.githubusercontent.com/97927496/204715308-4614bc70-b916-4ae8-8733-b1a94a44d89f.png">
+|   | Column  | Non-Null Count | Dtype   |
+|---|---------|----------------|---------|
+| 0 | carat   | 53940 non-null | float64 |
+| 1 | cut     | 53940 non-null | object  |
+| 2 | color   | 53940 non-null | object  |
+| 3 | clarity | 53940 non-null | object  |
+| 4 | depth   | 53940 non-null | float64 |
+| 5 | table   | 53940 non-null | float64 |
+| 6 | price   | 53940 non-null | int64   |
+| 7 | x       | 53940 non-null | float64 |
+| 8 | y       | 53940 non-null | float64 |
+| 9 | z       | 53940 non-null | float64 |
+
+|       |        carat |        depth |        table |        price |            x |            y |            z |
+|-------|-------------:|-------------:|-------------:|-------------:|-------------:|-------------:|-------------:|
+| count | 53940.000000 | 53940.000000 | 53940.000000 | 53940.000000 | 53940.000000 | 53940.000000 | 53940.000000 |
+|  mean |     0.797940 |    61.749405 |    57.457184 |  3932.799722 |     5.731157 |     5.734526 |     3.538734 |
+|  std  |     0.474011 |     1.432621 |     2.234491 |  3989.439738 |     1.121761 |     1.142135 |     0.705699 |
+|  min  |     0.200000 |    43.000000 |    43.000000 |   326.000000 |     0.000000 |     0.000000 |     0.000000 |
+|  25%  |     0.400000 |    61.000000 |    56.000000 |   950.000000 |     4.710000 |     4.720000 |     2.910000 |
+|  50%  |     0.700000 |    61.800000 |    57.000000 |  2401.000000 |     5.700000 |     5.710000 |     3.530000 |
+|  75%  |     1.040000 |    62.500000 |    59.000000 |  5324.250000 |     6.540000 |     6.540000 |     4.040000 |
+|  max  |     5.010000 |    79.000000 |    95.000000 | 18823.000000 |    10.740000 |    58.900000 |    31.800000 |
+
 <img width="223" alt="image" src="https://user-images.githubusercontent.com/97927496/204715410-deed495b-2ed3-4c24-9dfa-c5f8fcfe7dab.png">
 
 
