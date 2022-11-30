@@ -14,7 +14,7 @@ Dalam hal ini, diperlukan sistem <i>predictive analytics</i> untuk menemukan mod
 ## Business Understanding
 
 ### Problem Statements
-- Fitur apa yang paling berpengaruh terhadap harga diamonds
+- Fitur apa yang paling berpengaruh terhadap harga diamonds?
 - Berapa harga pasar diamonds dengan karakteristik atau fitur tertentu?
 
 ### Goals
@@ -26,7 +26,7 @@ Dalam hal ini, diperlukan sistem <i>predictive analytics</i> untuk menemukan mod
     - menggunakan model logistik regresi untuk memprediksi nilai <i>Boolean</i> (benar atau salah) 
 
 ## Data Understanding
-Dataset yang digunakan pada proyek ini adalah dataset diamonds yang diundur dari link [berikut ini](https://www.kaggle.com/datasets/shivam2503/diamonds)
+Dataset yang digunakan pada proyek ini adalah dataset diamonds yang diunduh dari link [berikut ini](https://www.kaggle.com/datasets/shivam2503/diamonds)
 
 Dataset ini memiliki format .csv dengan total 85295 baris dan 10 kolom. Berikut informasi pada masing-masing kolom :
 *   carat : Berat berlian (0.2 - 5.01)
@@ -41,10 +41,14 @@ Dataset ini memiliki format .csv dengan total 85295 baris dan 10 kolom. Berikut 
 *   z : Kedalaman dalam mm (0-31,8)
 
 ### Exploratory Data Analysis
-Proses exploratory data analysis (EDA) merupakan proses investigasi awal pada data untuk melakukan analisis karakteristik, menemukan pola, anomali dan memerika asumsi pada data
+Proses exploratory data analysis (EDA) merupakan proses investigasi awal pada data untuk melakukan analisis karakteristik, menemukan pola, anomali dan memeriksa asumsi pada data
 
 ## Data Preparation
 Hal yang akan dilakukan dalam fase ini adalah menggabungkan data, menyeleksi data yang akan digunakan, melakukan proses transformasi data, dan membagi data menjadi data training dan test.
+<img width="224" alt="image" src="https://user-images.githubusercontent.com/97927496/204715242-37dcb513-fb44-4416-94c9-f057fbec26bc.png">
+<img width="480" alt="image" src="https://user-images.githubusercontent.com/97927496/204715308-4614bc70-b916-4ae8-8733-b1a94a44d89f.png">
+<img width="223" alt="image" src="https://user-images.githubusercontent.com/97927496/204715410-deed495b-2ed3-4c24-9dfa-c5f8fcfe7dab.png">
+
 
 ### Encoding Fitur Kategori
 Sebelum masuk ke tahap pembagian dataset, terlebih dahulu dilakukan perubahan untuk merubah setiap nilai di dalam kolom menjadi kolom baru dan mengisinya dengan nilai biner yaitu 0 dan 1. Pada proyek ini, dilakukan perubahan pada variabel dependen(cut, color, clarity) karena fitur pada variabel tersebut merupakan fitur non-numerik yang berarti nilai pada fitur tersebut adalah kategorikal, maka akan dilakukan proses label encoding untuk mengubah fitur tersebut. Label <i>encoding</i> merupakan teknik untuk mengubah jenis data kategorikal menjadi data numerik yang dapat dipahami model. Pada proyek ini, encoding dilakukan dengan menggunakan metode <i>one-hot-encoding</i>.
@@ -82,7 +86,8 @@ Standardisasi merupakan teknik transformasi yang paling umum digunakan dalam tah
     
 ## Modeling
 Pada proyek ini, model yang dibuat merupakan tugas klasifikasi dengan lebih dari dua kelas atau banyak kelas yang mana menggunakan parameter carat, cut, color, claritym depth, table, price, x, y, dan z.
-pada tahap ini, kita membuat model summary yang nantinya akan digunakan untuk membandingkan model/solusi yang akan digunakan. Dimana pada tahap ini akan dilakukan penghitungan nilai dari <i>K-Nearest Neighbor</i>, <i>Random Forest(RF)</i>, dan <i>Boosting Algorithm</i> kemudian nantinya akan dibandingkan performanya.
+pada tahap ini, kita membuat model summary yang nantinya akan digunakan untuk membandingkan model/solusi yang akan digunakan. Dimana pada tahap ini akan dilakukan penghitungan nilai dari <i>K-Nearest Neighbor</i>, <i>Random Forest(RF)</i>, dan <i>Boosting Algorithm</i> kemudian nantinya akan dibandingkan prediksinya.
+Tahap pertama yang dilakukan pada bagian ini adalah menyiapkan datafreame untuk menganalisis model, kemudian pada percobaan pertama dilakukan dengan menggunakan metode prediksi <i>K-Nearest Neighbor</i> yang bekerja dengan membandingkan jarak satu sampel ke sampel pelatihan lain dengan memilih sejumlah k-tetangga terdekat. Setelah itu, akan dilanjutkan dengan menggunakan metode kedua yaitu <i>Random Forest(RF)</i> yang bekerja dengan memecah data sampel yang ada kedalam decision tree secara acak lalu akan dilakukan voting pada setiap kelas dari data sampel dan akan dikombinasikan pada setiap kelas kemudian diambil vote yang paling banyak. Metode selanjutnya yang digunakan adalah <i>Boosting Algorithm</i>, dimana disini digunakan <i>AdaBoost</i> yang merupakan algoritma ensemble yang memanfaatkan bagging dan boosting untuk mengembangkan peningkatan akurasi prediktor.
 
 
 ## Evaluation
@@ -93,6 +98,7 @@ Setelah mendapat seluruh performa dari 3 metode yang diterapkan maka hasil yang 
 |    KNN   | 226.035885 | 2220.770793 |
 |    RF    |  59.264645 | 1341.837668 |
 | Boosting | 928.043394 | 2200.663138 |
+<img width="225" alt="image" src="https://user-images.githubusercontent.com/97927496/204715532-7b0da00c-83cf-4566-bfe2-577d6cf5f920.png">
 
 
 ## Deployment
