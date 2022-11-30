@@ -50,7 +50,7 @@ Hal yang akan dilakukan dalam fase ini adalah menggabungkan data, menyeleksi dat
 Sebelum masuk ke tahap pembagian dataset, terlebih dahulu dilakukan perubahan untuk merubah setiap nilai di dalam kolom menjadi kolom baru dan mengisinya dengan nilai biner yaitu 0 dan 1. Pada proyek ini, dilakukan perubahan pada variabel dependen(cut, color, clarity) karena fitur pada variabel tersebut merupakan fitur non-numerik yang berarti nilai pada fitur tersebut adalah kategorikal, maka akan dilakukan proses label encoding untuk mengubah fitur tersebut. Label <i>encoding</i> merupakan teknik untuk mengubah jenis data kategorikal menjadi data numerik yang dapat dipahami model. Pada proyek ini, encoding dilakukan dengan menggunakan metode <i>one-hot-encoding</i>.
 * Multivariate Analysis
     + Categorical Features
-       <img width="321" alt="image" src="https://user-images.githubusercontent.com/97927496/204704497-089e759f-9998-4052-8006-296fa73767f6.png">
+    <img width="321" alt="image" src="https://user-images.githubusercontent.com/97927496/204704497-089e759f-9998-4052-8006-296fa73767f6.png">
     + Numerical Features
     <img width="464" alt="image" src="https://user-images.githubusercontent.com/97927496/204704548-6fb8487c-82c9-4424-a96d-8ddea9069263.png">    
 
