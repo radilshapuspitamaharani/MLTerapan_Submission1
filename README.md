@@ -48,13 +48,14 @@ Hal yang akan dilakukan dalam fase ini adalah menggabungkan data, menyeleksi dat
 
 ### Encoding Fitur Kategori
 Sebelum masuk ke tahap pembagian dataset, terlebih dahulu dilakukan perubahan untuk merubah setiap nilai di dalam kolom menjadi kolom baru dan mengisinya dengan nilai biner yaitu 0 dan 1. Pada proyek ini, dilakukan perubahan pada variabel dependen(cut, color, clarity) karena fitur pada variabel tersebut merupakan fitur non-numerik yang berarti nilai pada fitur tersebut adalah kategorikal, maka akan dilakukan proses label encoding untuk mengubah fitur tersebut. Label <i>encoding</i> merupakan teknik untuk mengubah jenis data kategorikal menjadi data numerik yang dapat dipahami model. Pada proyek ini, encoding dilakukan dengan menggunakan metode <i>one-hot-encoding</i>.
-<ul>Multivariate Analysis
-    <li>Categorical Features</li>
-    <img width="321" alt="image" src="https://user-images.githubusercontent.com/97927496/204704497-089e759f-9998-4052-8006-296fa73767f6.png">
-    <li>Numerical Features</li>
+* Multivariate Analysis
+    + Categorical Features
+       <img width="321" alt="image" src="https://user-images.githubusercontent.com/97927496/204704497-089e759f-9998-4052-8006-296fa73767f6.png">
+    + Numerical Features
     <img width="464" alt="image" src="https://user-images.githubusercontent.com/97927496/204704548-6fb8487c-82c9-4424-a96d-8ddea9069263.png">    
-</ul>
-<ul>Outliers dan Down Sampling
+
+* Outliers dan Down Sampling
+
 | carat | cut       | color | clarity | table | price | x    | y    | z    |
 |-------|-----------|-------|---------|-------|-------|------|------|------|
 | 0.23  | ideal     | E     | SI2     | 55.0  | 326   | 3.95 | 3.98 | 2.43 |
@@ -62,10 +63,9 @@ Sebelum masuk ke tahap pembagian dataset, terlebih dahulu dilakukan perubahan un
 | 0.29  | Premium   | I     | VS2     | 58.0  | 334   | 4.20 | 4.23 | 2.63 |
 | 0.31  | Good      | J     | SI2     | 58.0  | 335   | 4.34 | 4.35 | 2.75 |
 | 0.24  | Very Good | J     | VVS2    | 57.0  | 336   | 3.94 | 3.96 | 2.48 |
-</ul>
-<ul>Corelation Matrix
-<img width="315" alt="image" src="https://user-images.githubusercontent.com/97927496/204705362-262e8030-82f2-422b-a64a-1cd3ed815352.png">
 
+* Corelation Matrix
+<img width="315" alt="image" src="https://user-images.githubusercontent.com/97927496/204705362-262e8030-82f2-422b-a64a-1cd3ed815352.png">
 
 ### Reduksi Dimensi Dengan PCA
 PCA adalah teknik tanpa pengawasan karena hanya melihat fitur masukan dan tidak memperhitungkan keluaran atau variabel target
