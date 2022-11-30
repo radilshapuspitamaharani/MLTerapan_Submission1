@@ -8,7 +8,7 @@ Diamonds atau berlian adalah salah satu mineral karbon alami yang paling langka 
 Dalam bidang perdagangan intan, pembeli atau investor mengalami kesulitan dalam memprediksi harga berlian karena adanya perbedaan bentuk, ukuran, dan kemurnian berlian. Banyak model dan aplikasi telah diimplementasikan untuk
 memprediksi harga berlian ini di masa depan menggunakan pembelajaran mesin. Pembelajaran mesin dibagi menjadi dua kategori, yaitu diawasi dan tidak diawasi. Algoritma pembelajaran terbimbing menggunakan prinsip umum contoh
 praktis untuk prediksi atau peramalan. 
-Dalam hal ini, diperlukan sistem predictive analytics untuk menemukan model prediksi harga berlian yang paling efisien.
+Dalam hal ini, diperlukan sistem <i>predictive analytics</i> untuk menemukan model prediksi harga berlian yang paling efisien.
 
 
 ## Business Understanding
@@ -19,11 +19,11 @@ Dalam hal ini, diperlukan sistem predictive analytics untuk menemukan model pred
 
 ### Goals
 - Mengetahui fitur yang paling berkorelasi dengan harga diamonds
-- Membuat model machine learning yang dapat memprediksi harga diamonds seakurat mungkin berdasarkan fitur-fitur yang ada
+- Membuat model <i>machine learning</i> yang dapat memprediksi harga diamonds seakurat mungkin berdasarkan fitur-fitur yang ada
 
     ### Solution statements
-    - Melakukan aalisis data, data cleaning untuk mencari missing value, eksplrasi dengan visualisasi data untuk menemukan outliers, dan preprocessing data yang tepat sebelum dilakukan train atau latih
-    - menggunakan model logistik regresi untuk memprediksi nilai Boolean (benar atau salah) 
+    - Melakukan analisis data, data cleaning untuk mencari <i>missing value</i>, eksplorasi dengan visualisasi data untuk menemukan <i>outliers</i>, dan <i>preprocessing</i> data yang tepat sebelum dilakukan train atau latih
+    - menggunakan model logistik regresi untuk memprediksi nilai <i>Boolean</i> (benar atau salah) 
 
 ## Data Understanding
 Dataset yang digunakan pada proyek ini adalah dataset diamonds yang diundur dari link [berikut ini](https://www.kaggle.com/datasets/shivam2503/diamonds)
@@ -44,29 +44,33 @@ Dataset ini memiliki format .csv dengan total 85295 baris dan 10 kolom. Berikut 
 Proses exploratory data analysis (EDA) merupakan proses investigasi awal pada data untuk melakukan analisis karakteristik, menemukan pola, anomali dan memerika asumsi pada data
 
 ## Data Preparation
-Hal yang akan dilakukan dalam fase ini adalah menggabungkan data, menyeleksi data yang akan digunakan, melakukan proses transformasi dat, dan membagi data menjadi data training dan test.
+Hal yang akan dilakukan dalam fase ini adalah menggabungkan data, menyeleksi data yang akan digunakan, melakukan proses transformasi data, dan membagi data menjadi data training dan test.
+
 ### Encoding Fitur Kategori
-![image](https://user-images.githubusercontent.com/97927496/204614119-3d3bac92-f1a0-46b0-b1c9-1db4acd42b09.png)
+Sebelum masuk ke tahap pembagian dataset, terlebih dahulu dilakukan perubahan untuk merubah setiap nilai di dalam kolom menjadi kolom baru dan mengisinya dengan nilai biner yaitu 0 dan 1. Pada proyek ini, dilakukan perubahan pada variabel dependen(cut, color, clarity) karena fitur pada variabel tersebut merupakan fitur non-numerik yang berarti nilai pada fitur tersebut adalah kategorikal, maka akan dilakukan proses label encoding untuk mengubah fitur tersebut. Label <i>encoding</i> merupakan teknik untuk mengubah jenis data kategorikal menjadi data numerik yang dapat dipahami model. Pada proyek ini, encoding dilakukan dengan menggunakan metode <i>one-hot-encoding</i>.
 
 ### Reduksi Dimensi Dengan PCA
-![image](https://user-images.githubusercontent.com/97927496/204614182-ce68d0b9-2419-4ea2-b023-47f330db3975.png)
-![image](https://user-images.githubusercontent.com/97927496/204614227-1357ebe2-bc2c-428c-be91-e1f06bdee32f.png)
+PCA adalah teknik tanpa pengawasan karena hanya melihat fitur masukan dan tidak memperhitungkan keluaran atau variabel target
+PCA dilakukan untuk mengurangi dimensi fitur masukan dari dataset dengan tetap mempertahankan semua informasi penting yang ada dalam data dengan dimensi yang dikurangi
+<img width="180" alt="image" src="https://user-images.githubusercontent.com/97927496/204695560-dcfeb199-c5d3-407d-bce4-8e448a5a5218.png">
+Output diatas adalah 99.8% informasi pada ketiga fitur x, y, z terdapat pada PC pertama. Sedangkan sisanya, sebesar 0.2% dan 0.1% terdapat pada PC kedua dan ketiga. Pada gambar, jumlahnya menjadi >100% dikarenakan proses pembulatan (round) dalam 3 <i>decimal</i>.
 
 ### Split Dataset atau Pembagian Dataset
-![image](https://user-images.githubusercontent.com/97927496/204614261-2680e72b-bcbe-4e15-a465-0523edf978e6.png)
+Untuk mengetahui kinerja model ketika dihadapkan pada data yang belum pernah dilihat sebelumnya maka perlu dilakukan pembagian dataset. Pada proyek ini dataset dibagi menjadi data latih dan data uji dengan rasio 90% untuk data latih dan 10% untuk data uji. Data latih merupakan data yang akan kita latih untuk membangun model machine learning, sedangkan data uji merupakan data yang belum pernah dilihat oleh model dan digunakan untuk melihat kinerja atau performa dari model yang dilatih. Pembagian dataset dilakukan dengan modul train_test_split dari scikit-learn. Setelah melakukan pembagian dataset, didapatkan jumlah sample pada data latih yaitu 47524 sampel dan jumlah sampel pada data uji yaitu 4753 sampel dari total jumlah sample pada dataset yaitu 42771 sampel.
 
 ### Standarisasi
-![image](https://user-images.githubusercontent.com/97927496/204614315-bef7a618-b6a2-46d8-ad58-a7e1177dac40.png)
-
+Standardisasi merupakan teknik transformasi yang paling umum digunakan dalam tahap data preparation. Standarisasi membantu untuk membuat semua fitur numerik berada dalam skala data yang sama dan membuat fitur data menjadi bentuk yang lebih mudah diolah oleh algoritma. Pada proyek ini, standarisasi data dilakukan dengan menerapkan teknik StandarScaler dari library Scikitlearn. StandardScaler melakukan proses standarisasi fitur dengan mengurangkan mean (nilai rata-rata) kemudian membaginya dengan standar deviasi untuk menggeser distribusi. 
+    
 ## Modeling
-Pada pemodelan ini menggunakan regresi machine learning karena nilai harga diamonds yang bersifat kontinyu, menggunakan regresi k-Nearest Neighbors. 
-k-Nearest Neighbors adalah metode yang menggunakan algoritma terawasi. Regresi K-NN adalah metode nonparametrik intuitif dengan fitur menggunakan pendekatan k untuk menemukan nilai yang mendekati hasil dengan menghitung nilai kedekatan kasus baru dengan kasus lama, dimana k adalah jumlah nilai terdekat.
-<img width="546" alt="image" src="https://user-images.githubusercontent.com/97927496/204616266-db08c93f-9669-40bb-a674-92e73de981de.png">
+Pada proyek ini, model yang dibuat merupakan tugas klasifikasi dengan lebih dari dua kelas atau banyak kelas yang mana menggunakan parameter carat, cut, color, claritym depth, table, price, x, y, dan z.
+pada tahap ini, kita membuat model summary yang nantinya akan digunakan untuk membandingkan model/solusi yang akan digunakan. Dimana pada tahap ini akan dilakukan penghitungan nilai dari <i>K-Nearest Neighbor</i>, <i>Random Forest(RF)</i>, dan <i>Boosting Algorithm</i> kemudian nantinya akan dibandingkan performanya.
 
 
 ## Evaluation
-Setelah membuat model machine learning, model perlu dievaluasi agar terbukti cocok untuk tujuan yang telah ditentukan. Fase ini bertujuan untuk memastikan bahwa model akan mampu membuat prediksi yang akurat dan tidak mengalami overfitting atau underfitting
-<img width="662" alt="image" src="https://user-images.githubusercontent.com/97927496/204618261-224e245d-20ea-4089-b73b-7044a681eb1d.png">
+Setelah membuat model <i>machine learning</i>, model perlu dievaluasi agar terbukti cocok untuk tujuan yang telah ditentukan. Fase ini bertujuan untuk memastikan bahwa model akan mampu membuat prediksi yang akurat dan tidak mengalami <i>overfitting</i> atau <i>underfitting</i>
+Setelah mendapat seluruh performa dari 3 metode yang diterapkan maka hasil yang di dapatkan adalah
+<img width="210" alt="image" src="https://user-images.githubusercontent.com/97927496/204700457-2f8b256c-8855-4a79-bc9f-bae6c05b2640.png">
+
 
 ## Deployment
 <img width="483" alt="image" src="https://user-images.githubusercontent.com/97927496/204618366-f81cfce1-a57b-4694-b0d1-c12beaa8522f.png">
